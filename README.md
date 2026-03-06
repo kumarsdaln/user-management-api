@@ -64,7 +64,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-## 5. Configure database
+## 5. Configure database and mail
 
 Update `.env`
 
@@ -73,14 +73,12 @@ Update `.env`
 - DB_PASSWORD=
 
 - MAIL_MAILER=smtp
-- MAIL_SCHEME=null
 - MAIL_HOST=smtp.gmail.com
 - MAIL_PORT=587
 - MAIL_ENCRYPTION=tls
 - MAIL_USERNAME=email
 - MAIL_PASSWORD=password
 - MAIL_FROM_ADDRESS="email"
-- MAIL_FROM_NAME="${APP_NAME}"
 
 ## 6. Run migrations and seed database
 
