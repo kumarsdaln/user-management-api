@@ -30,7 +30,7 @@ This project demonstrates **clean architecture, security best practices, and sca
 - Laravel 12
 - Laravel Sanctum
 - Spatie Laravel Permission
-- MySQL / SQLite
+- MySQL
 - Laravel Queue
 - Laravel Telescope
 - PHPUnit
@@ -351,7 +351,6 @@ Example actions:
 - created_user
 - updated_user
 - deleted_user
-- reset_password_requested
 
 ---
 
