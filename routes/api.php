@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\API\AnalysePDFController;
 use App\Http\Controllers\Api\AuditLogController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\API\UploadPDFController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +21,17 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/{user:id}/update', [UserController::class, 'update'])->name('users.update');
         Route::delete('/{user:id}/delete', [UserController::class, 'delete'])->name('users.delete');
     });
+
+    Route::prefix('pdf')->group(function () {
+        Route::post('start', [UploadPDFController::class, 'start']);
+        Route::get('{pdf:id}/status', [UploadPDFController::class, 'status']);
+        Route::get('{pdf:id}/result', [UploadPDFController::class, 'result']);
+    });
+});
+Route::prefix('pdf')->group(function () {
+    Route::post('api1', [AnalysePDFController::class, 'step1']);
+    Route::post('api2', [AnalysePDFController::class, 'step2']);
+    Route::post('api3', [AnalysePDFController::class, 'step3']);
 });
 
 Route::middleware(['auth:sanctum','role:admin', 'throttle:audit-log'])->group(function () {
